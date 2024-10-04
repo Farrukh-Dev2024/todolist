@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+:root{
+
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 50px;
+  height: 90%;
+  /* min-height: 600px; */
+  border-radius: 1% 10%;
+  background-color: azure;
+  background-blend-mode: soft-light;
+  box-shadow: 3px 4px 5px 0px black;  
+  overflow: auto; 
+
+}
+
+.CardsFont {
+  font-family: "Edu AU VIC WA NT Guides", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.AppFont {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.TopSection{
+  margin-top: 30px;
+}
+.TopSection h1{
+  font-weight: bold;
+}
+
+.CardsSection{
+  display: flex;
+  flex-direction: column;
+  -ms-flex-item-align: start;
+  margin: 50px;
+  align-items: flex-start;
+  overflow: auto;
+}
+.SingleCard {
+  display:  flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.SingleCard h4{
+  text-align: start;
+  width: 80%;
+}
+.CardControls i{
+  margin: 0px 5px;
+}
+.CardControls i:hover{
+ color: red;
+ transition: color 0.5s ease-in-out;
+ cursor: pointer;
+}
+
+
+#txttodo {
+  background: white;
+}
+.btnadd{
+  margin-left: 5px;
+  width: 50px;
+}
