@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{memo} from 'react';
 
 const SingleCard = (props) => {
     const { carddata, handleDeleteTodo, index, handleEditTodo } = props
@@ -14,4 +14,4 @@ const SingleCard = (props) => {
     );
 };
 
-export default SingleCard;
+export default memo(SingleCard);

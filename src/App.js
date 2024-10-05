@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 //import logo from './logo.svg';
 import './App.css';
 import TopSection from './components/TopSection.jsx'; 
@@ -13,7 +13,8 @@ function App() {
     localStorage.setItem('todos', JSON.stringify({ todos: newList }))
   }
 
-  function handleAddTodos(newTodo) {
+
+  const handleAddTodos = useCallback((newTodo)=> {
     if (toeditIndex===-1){
       const newTodoList = [...todos, newTodo];
       persistData(newTodoList);
@@ -25,22 +26,35 @@ function App() {
       setTodos(todos);
       settoditIndex(-1);
     }
-  }
+  },[todos,toeditIndex]);
 
-  function handleDeleteTodo(index) {
+  const handleDeleteTodo = useCallback((index)=>{
     const newTodoList = todos.filter((todo, todoIndex) => {
       return todoIndex !== index
     })
     persistData(newTodoList)
     setTodos(newTodoList)
-  }
 
-  function handleEditTodo(index) {
+  },[todos,toeditIndex]);
+  // function handleDeleteTodo(index) {
+  //   const newTodoList = todos.filter((todo, todoIndex) => {
+  //     return todoIndex !== index
+  //   })
+  //   persistData(newTodoList)
+  //   setTodos(newTodoList)
+  // }
+  const handleEditTodo =useCallback((index)=>{  
     const valueToBeEdited = todos[index];
     setTodoValue(valueToBeEdited);
     settoditIndex(index);
     // handleDeleteTodo(index)
-  }
+  },[todos,toeditIndex]);
+  // function handleEditTodo(index) {
+  //   const valueToBeEdited = todos[index];
+  //   setTodoValue(valueToBeEdited);
+  //   settoditIndex(index);
+  //   // handleDeleteTodo(index)
+  // }
 
   useEffect(() => {
     if (!localStorage) {
@@ -52,7 +66,7 @@ function App() {
       return
     }
 
-    console.log(localTodos)
+    //console.log(localTodos)
     localTodos = JSON.parse(localTodos).todos
     setTodos(localTodos)
 
@@ -62,7 +76,7 @@ function App() {
     <div className="container">
       <div className="App">
         <TopSection todoValue={todoValue} setTodoValue={setTodoValue} handleAddTodos={handleAddTodos} toeditIndex={toeditIndex} />
-        <CardsSection todos = {todos} handleEditTodo={handleEditTodo} handleDeleteTodo={handleDeleteTodo}/>
+          <CardsSection todos = {todos} handleEditTodo={handleEditTodo} handleDeleteTodo={handleDeleteTodo} />
       </div>
     </div>
   );
