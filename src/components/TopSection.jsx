@@ -9,7 +9,7 @@ const TopSection = (props) => {
         <div className='TopSection'>
             
             <h1 className='AppFont'>Todo List</h1><br></br>
-            <input className='AppFont' type="text" name="txttodo" id="txttodo" placeholder='Enter some text here'
+            <input className='AppFont' type="text" name="txttodo" id="txttodo" placeholder='Enter some text here.'
                 value={todoValue} 
                 onChange={(e)=>{
                     setTodoValue(e.target.value);
